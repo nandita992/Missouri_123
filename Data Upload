@@ -1,0 +1,30 @@
+%----------------------------------------------------%%%
+
+# 1. Frontend : Data Upload by the name "input.txt"  or "input.csv"
+# 2. Backend 
+data <- read.delim('input.txt', 
+                   header=T)
+%%-----------------------------------------------------%%%
+
+"Phenotype Data"
+# Front end : User needs to enter GEO acession ID or Upload the Phenotype File.
+
+" If the user enters GEO Accession ID : "GEO123" == phenoty"
+#Backend
+geo_id <- "phenoty"
+gse <- getGEO(geo_id, GSEMatrix = TRUE)
+phenoData <- pData(phenoData(gse[[1]]))
+
+" If the user upload the phenotype file .csv or .txt "
+#Backend
+data <- read.delim('phenoty.txt', 
+                   header=T)
+
+" If it's .csv then the code will be read.csv() or if it's .txt then read.delim()"
+
+%%---------------------------------------------------------------------------------
+
+"3. The file will be shown to the user and user needs to select the columns"
+"Start : 1 , end =30 or col1,2,3,4,   it does not need to be sequenctial "
+
+phenoData <- phenoData[,c(1,33)] 
